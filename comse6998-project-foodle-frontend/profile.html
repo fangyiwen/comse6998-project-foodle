@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Foodle</title>
+
+  <script src="./assets/js/profile.js" type="text/javascript"></script>
+  <script src="https://kit.fontawesome.com/a2b4b95edc.js" crossorigin="anonymous"></script>
+
+  <!-- api gateway generated sdk -->
+  <script src="./assets/js/sdk/lib/axios/dist/axios.standalone.js"></script>
+  <script src="./assets/js/sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+  <script src="./assets/js/sdk/lib/CryptoJS/rollups/sha256.js"></script>
+  <script src="./assets/js/sdk/lib/CryptoJS/components/hmac.js"></script>
+  <script src="./assets/js/sdk/lib/CryptoJS/components/enc-base64.js"></script>
+  <script src="./assets/js/sdk/lib/url-template/url-template.js"></script>
+  <script src="./assets/js/sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+  <script src="./assets/js/sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+  <script src="./assets/js/sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+  <script src="./assets/js/sdk/lib/apiGatewayCore/utils.js"></script>
+
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="./assets/js/access_control/amazon-cognito-auth.min.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+  <script src="./assets/js/access_control/amazon-cognito-identity.min.js"></script>
+  <script src="./assets/js/access_control/config.js"></script>
+  <script src="./assets/js/access_control/access_control.js"></script>
+
+  <script src="./assets/js/sdk/apigClient.js"></script>
+  <link rel="stylesheet" href="profile.css">
+
+</head>
+<body>
+  <section class="menu menu--circle">
+    <input type="checkbox" id="menu__active"/>
+    <label for="menu__active" class="menu__active">
+      <div class="menu__toggle">
+        <div class="icon">
+          <div class="hamburger"></div>
+        </div>
+      </div>
+      <input type="radio" name="arrow--up" id="degree--up-0"/>
+      <input type="radio" name="arrow--up" id="degree--up-1" />
+      <input type="radio" name="arrow--up" id="degree--up-2" />
+      <div class="menu__listings">
+        <ul class="circle">
+          <li>
+            <div class="placeholder">
+              <div class="upside">
+                <a href="./home.html" class="button"><i class="fa fa-home"></i></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="placeholder">
+              <div class="upside">
+                <a href="./search.html" class="button"><i class="fa fa-search"></i></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="placeholder">
+              <div class="upside">
+                <a href="./profile.html" class="button"><i class="fa fa-user"></i></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="placeholder">
+              <div class="upside">
+                <a href="./login.html" class="button"><i class="fas fa-sign-in-alt"></i></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="placeholder">
+              <div class="upside">
+                <a href="./home.html" class = "button" onclick=signOut()><i class="fas fa-sign-out-alt"></i></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="menu__arrow menu__arrow--top">
+        <ul>
+          <li>
+            <label for="degree--up-0"><div class="arrow"></div></label>
+            <label for="degree--up-1"><div class="arrow"></div></label>
+            <label for="degree--up-2"><div class="arrow"></div></label>
+          </li>
+        </ul>
+      </div>
+    </label>
+  </section>
+  <br>
+  <!-- <div class = 'personal-div'>
+    <div class = 'personal-info'>
+      <h3>Username:</h3>
+    </div>
+  </div> -->
+  <div onclick=test() id="circle-div" style="cursor:pointer;">
+    <div id='circle-div-info'>
+    </div>
+  </div>
+  <div id="circle-div-second" style="display: none;">
+    <div id='circle-div-info-second'>
+      <form class="form-inline">
+        <input type="firstname"  id="firstname" placeholder="First Name" pattern=".*" required style="color: white;">
+        <input type="lasttname"  id="lastname" placeholder="Last Name" pattern=".*" required style="color: white;">
+        <input type="Gender"  id="gender" placeholder="Gender" pattern=".*" required style="color: white;">
+        <input type="age"  id="age" placeholder="Age" pattern=".*" required style="color: white;">
+        <input type="height"  id="height" placeholder="Height" pattern=".*" required style="color: white;">
+        <input type="weight"  id="weight" placeholder="Weight" pattern=".*" required style="color: white;">
+        <input type="phone"  id="phone" placeholder="Phone" pattern=".*" required style="color: white;">
+        <input type="Dislike"  id="dislike" placeholder="Dislike" pattern=".*" required style="color: white;">
+        <input type="Email"  id="email" placeholder="Email" pattern=".*" required style="color: white;">
+        <button id="editbutton" class="btn btn-lg btn-primary btn-block" type="button" onclick="editInfo()">Edit</button>
+        <button id="backbutton" class="btn btn-lg btn-primary btn-block" type="button" onclick="test1()">Cancel</button>
+      </form>
+    </div>
+  </div>
+  <br>
+  <div onclick=test2() id='nuitrition-div' style="cursor: pointer;">
+    <div id="main2" style="height:400px;width:400px;#ccc;padding:10px;"></div>
+    <div id="main1" style="height:320px;width:320px;#ccc;padding:5px;"></div>
+    <div id="main" style="height:320px;width:320px;#ccc;padding:5px;"></div>
+    <!-- <div id ='dish-sofar'><p>hello</p></div> -->
+  </div>
+  <div id='nuitrition-div-2' style="display: none;">
+    <div id='current-dishes'>
+    </div>
+    <div onclick=test3() id='past-dishes' style="cursor: pointer;">
+    </div>
+  </div>
+  <footer>
+    <p></p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <!-- <script src="./assets/js/test.js" type="text/javascript"></script> -->
+</body>
+</html>

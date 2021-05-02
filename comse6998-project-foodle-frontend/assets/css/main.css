@@ -1,0 +1,18 @@
+.chat-link {
+  text-decoration: underline;
+}
+
+.white {
+  background: #FFCC00;
+  color: #fff;
+  text-shadow: none;
+}
+
+.white a {
+  color: #fff !important;
+  text-shadow: none !important;
+}
+
+.white .active > a {
+  border-bottom-color: #fff !important;
+}

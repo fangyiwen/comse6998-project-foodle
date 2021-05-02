@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Foodle</title>
+
+  <script src="./assets/js/script.js" type="text/javascript"></script>
+  <script src="https://kit.fontawesome.com/a2b4b95edc.js" crossorigin="anonymous"></script>
+
+  <!-- api gateway generated sdk -->
+  <script src="./assets/js/sdk/lib/axios/dist/axios.standalone.js"></script>
+  <script src="./assets/js/sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+  <script src="./assets/js/sdk/lib/CryptoJS/rollups/sha256.js"></script>
+  <script src="./assets/js/sdk/lib/CryptoJS/components/hmac.js"></script>
+  <script src="./assets/js/sdk/lib/CryptoJS/components/enc-base64.js"></script>
+  <script src="./assets/js/sdk/lib/url-template/url-template.js"></script>
+  <script src="./assets/js/sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+  <script src="./assets/js/sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+  <script src="./assets/js/sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+  <script src="./assets/js/sdk/lib/apiGatewayCore/utils.js"></script>
+
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="./assets/js/access_control/amazon-cognito-auth.min.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+  <script src="./assets/js/access_control/amazon-cognito-identity.min.js"></script>
+  <script src="./assets/js/access_control/config.js"></script>
+  <script src="./assets/js/access_control/access_control.js"></script>
+
+  <script src="./assets/js/sdk/apigClient.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <section class="menu menu--circle">
+    <input type="checkbox" id="menu__active"/>
+    <label for="menu__active" class="menu__active">
+      <div class="menu__toggle">
+        <div class="icon">
+          <div class="hamburger"></div>
+        </div>
+      </div>
+      <input type="radio" name="arrow--up" id="degree--up-0"/>
+      <input type="radio" name="arrow--up" id="degree--up-1" />
+      <input type="radio" name="arrow--up" id="degree--up-2" />
+      <div class="menu__listings">
+        <ul class="circle">
+          <li>
+            <div class="placeholder">
+              <div class="upside">
+                <a href="./home.html" class="button"><i class="fa fa-home"></i></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="placeholder">
+              <div class="upside">
+                <a href="./search.html" class="button"><i class="fa fa-search"></i></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="placeholder">
+              <div class="upside">
+                <a href="./profile.html" class="button"><i class="fa fa-user"></i></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="placeholder">
+              <div class="upside">
+                <a href="./login.html" class="button"><i class="fas fa-sign-in-alt"></i></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="placeholder">
+              <div class="upside">
+                <a href="./home.html" class = "button" onclick=signOut()><i class="fas fa-sign-out-alt"></i></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="menu__arrow menu__arrow--top">
+        <ul>
+          <li>
+            <label for="degree--up-0"><div class="arrow"></div></label>
+            <label for="degree--up-1"><div class="arrow"></div></label>
+            <label for="degree--up-2"><div class="arrow"></div></label>
+          </li>
+        </ul>
+      </div>
+    </label>
+  </section>
+  <br>
+  <div class="box">
+    <form action="">
+      <span class="text-center" style="font-family: 'Apple Chancery', 'cursive';">Recipe Search</span>
+      <div class="input-container">		
+        <input type="text" id="dish-name" required=""/>
+        <label>Course Name</label>
+     </div>
+      <div class="input-container">		
+       <input type="text" id="cuisine-type" required=""/>
+       <label>Cuisine</label>
+    </div>
+    <div class="input-container">		
+      <input type="text" id="diet-type" required=""/>
+      <label>Diet</label>
+    </div>
+    <div class="input-container">
+      <input type="text" id="ingre-list" required=""/>
+      <label>Ingredients</label>		
+    </div>
+    <div class="input-container">		
+      <input type="text" id="ex-ingre" required=""/>
+      <label>Exclude Ingredients</label>
+    </div>
+      <button type="button" onclick="send_ingre()" class="btn" >submit</button>
+  </form>	
+  </div>
+  <br>
+  <div id="return-result" class="return-result">
+    <!-- <div class="column" id="result-1" style="background-color: #aaa; width: 100%; padding: 10px; height: 150px;">
+      <h2>1</h2>
+    </div><br> -->
+    <!-- <div class="column" id="result-2" style="background-color:#bbb;"> 
+      <h2>2</h2>
+    </div><br>
+    <div class="column" id="result-3" style="background-color:#ccc;"> 
+      <h2>3</h2>
+    </div><br>
+    <div class="column" id="result-4" style="background-color:#ddd;"> 
+      <h2>4</h2>
+    </div><br> -->
+  </div>
+</body>
+</html>

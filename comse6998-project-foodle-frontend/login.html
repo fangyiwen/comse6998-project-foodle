@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Javascript SDK-->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="./assets/js/access_control/amazon-cognito-auth.min.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+  <script src="./assets/js/access_control/amazon-cognito-identity.min.js"></script>
+  <script src="./assets/js/access_control/config.js"></script>
+  <script src="./assets/js/access_control/access_control.js"></script>
+
+  <link rel="stylesheet" href="login.css">
+  <script src="./assets/js/login.js" type="text/javascript"></script>
+  <script src="https://kit.fontawesome.com/a2b4b95edc.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <!-- <form>
+    <h1>Please sign in</h1>
+
+    <input type="text" id="inputUsername" placeholder="Username" name="username" required autofocus>
+    <input type="password" id="inputPassword" placeholder="Password" name="password" required>
+    <button type="button" onclick="signInButton()">Sign in</button>
+
+  </form> -->
+  <a id='home-direct' href="./home.html" class="button"><i class="fa fa-home"></i></a>
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      <form>
+        <h1>Create Account</h1>
+        <input type="personalname" class="form-control" id="personalnameRegister" placeholder="Username" pattern=".*" required>
+        <input type="password" class="form-control" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
+        <button id="mainbutton" class="btn btn-lg btn-primary btn-block" type="button" onclick="registerButton()">Sign Up</button>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form>
+        <h1>Sign in</h1>
+        <input type="text" id="inputUsername" placeholder="Username" name="username" required autofocus>
+        <input type="password" id="inputPassword" placeholder="Password" name="password" required>
+        <button type="button" onclick="signInButton()">Sign In</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" id="signInTrigger" onclick=signuppage()>Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start journey with us</p>
+          <button class="ghost" id="signUpTrigger" onclick=signinpage()>Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

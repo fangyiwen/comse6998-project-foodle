@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Javascript SDK-->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="./assets/js/access_control/amazon-cognito-auth.min.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+  <script src="./assets/js/access_control/amazon-cognito-identity.min.js"></script>
+  <script src="./assets/js/access_control/config.js"></script>
+  <script src="./assets/js/access_control/access_control.js"></script>
+</head>
+
+
+<body>
+
+  <h1 class="h3 mb-3 font-weight-normal" id="titleheader">Register an Account</h1>
+
+  <input type="personalname" class="form-control" id="personalnameRegister" placeholder="Username" pattern=".*" required>
+  <!--  <input type="email" class="form-control" id="emailInputRegister" placeholder="Email" pattern=".*" required>-->
+  <input type="password" class="form-control" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
+<!--  <input type="password" class="form-control" id="confirmationpassword" placeholder="Confirm Password" pattern=".*"-->
+<!--         required>-->
+  <button id="mainbutton" class="btn btn-lg btn-primary btn-block" type="button" onclick="registerButton()">Register
+  </button>
+
+</body>
+
+</html>
